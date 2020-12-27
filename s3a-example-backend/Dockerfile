@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["WebApplication2/WebApplication2.csproj", "WebApplication2/"]
-RUN dotnet restore "WebApplication2/WebApplication2.csproj"
+COPY ["s3a-example-backend/s3a-example-backend.csproj", "s3a-example-backend/"]
+RUN dotnet restore "s3a-example-backend/s3a-example-backend.csproj"
 COPY . .
-WORKDIR "/src/WebApplication2"
-RUN dotnet build "WebApplication2.csproj" -c Release -o /app/build
+WORKDIR "/src/s3a-example-backend"
+RUN dotnet build "s3a-example-backend.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "WebApplication2.csproj" -c Release -o /app/publish
+RUN dotnet publish "s3a-example-backend.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebApplication2.dll"]
+ENTRYPOINT ["dotnet", "s3a-example-backend.dll"]
