@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApplication2
+namespace S3MExampleBackend
 {
     public class WeatherForecast
     {

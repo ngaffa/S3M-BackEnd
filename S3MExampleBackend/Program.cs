@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApplication2
+namespace S3MExampleBackend
 {
     public class Program
     {
