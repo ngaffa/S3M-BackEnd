@@ -33,7 +33,7 @@ name: Deploy to Amazon ECS
 
 jobs:
   deploy:
-    name: Deploy
+    name: Dockerize & Deploy
     runs-on: ubuntu-latest
   
     steps:
